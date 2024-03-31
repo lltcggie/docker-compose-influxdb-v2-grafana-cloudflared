@@ -1,6 +1,7 @@
 version: '3.9'
 services:
   influxdb:
+    restart: always
     image: influxdb:latest
     volumes:
       - influxdb-storage:/var/lib/influxdb2:rw
@@ -18,6 +19,7 @@ services:
     environment:
       - TUNNEL_TOKEN=${CLOUDFLARED_TOKEN}
   grafana:
+    restart: always
     image: grafana/grafana:latest
     volumes:
       - grafana-storage:/var/lib/grafana
